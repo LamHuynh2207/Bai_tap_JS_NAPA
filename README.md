@@ -99,3 +99,24 @@ Async function là hàm trả về một promise. Nếu hàm trả về giá tr�
   </p>
 
   Await là từ khoá được sử dụng bên trong hàm async để đảm bảo tất cả các promise bên trong async function trở nên đồng bộ.
+  
+<h1>3. Callback hell là gì</h1>
+
+Như ta đã biết, hàm callback được thực thi bên trong 1 hàm khác, nếu ta tiếp tục có hàm callback bên trong một callback khác thì thế nào? Vòng lặp vô tận “callback bên trong callback bên trong callback … ” sẽ có khả năng xảy ra. Điều này được gọi là callback hell – địa ngục callback, ta sẽ rất hay gặp vấn đề này trong khi xử lí các lệnh bất đồng bộ, kiểu như:
+
+  ```sh
+  p_client.open(function(err, p_client) {
+     p_client.dropDatabase(function(err, done) {
+        p_client.createCollection('test_custom_key', function(err, collection) {
+           collection.insert({'a':1}, function(err, docs) {
+              // ...
+              // và nhiều callback nữa
+           });
+        });
+     });
+  });
+  ```
+  
+  Khi callback hell xuất hiện, logic xử lí của chương trình sẽ trở nên cực kì phức tạp và khó nắm bắt, khi có lỗi xảy ra ta rất khó để debug cũng như giải quyết.
+
+  Bên cạnh đó, callback hell cũng làm cho tính thẩm mĩ của code giảm đi đáng kể, khó đọc, khó maintain.
