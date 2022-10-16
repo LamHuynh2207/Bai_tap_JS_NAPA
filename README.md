@@ -100,7 +100,7 @@ Async function là hàm trả về một promise. Nếu hàm trả về giá tr�
 
   Await là từ khoá được sử dụng bên trong hàm async để đảm bảo tất cả các promise bên trong async function trở nên đồng bộ.
   
-<h1>3. Callback hell là gì</h1>
+<h1>3. Callback hell là gì?</h1>
 
 Như ta đã biết, hàm callback được thực thi bên trong 1 hàm khác, nếu ta tiếp tục có hàm callback bên trong một callback khác thì thế nào? Vòng lặp vô tận “callback bên trong callback bên trong callback … ” sẽ có khả năng xảy ra. Điều này được gọi là callback hell – địa ngục callback, ta sẽ rất hay gặp vấn đề này trong khi xử lí các lệnh bất đồng bộ, kiểu như:
 
@@ -120,3 +120,80 @@ Như ta đã biết, hàm callback được thực thi bên trong 1 hàm khác, 
   Khi callback hell xuất hiện, logic xử lí của chương trình sẽ trở nên cực kì phức tạp và khó nắm bắt, khi có lỗi xảy ra ta rất khó để debug cũng như giải quyết.
 
   Bên cạnh đó, callback hell cũng làm cho tính thẩm mĩ của code giảm đi đáng kể, khó đọc, khó maintain.
+  
+<h1>4. Promise hell là gì?</h1>
+
+Tuy nói Promise giúp tổ chức code, và tránh callback hell, nhưng nếu viết code không rõ ràng thì anh em vẫn rơi vào Promise Hell. Do đó lúc nào chúng ta cũng phải cleancode.
+
+Promise Hell
+
+  ```sh
+  muon_sach_thu_vien()
+      .then(function(sach){
+        return muon_sach(sach)
+          .then(function(sach_da_muon){
+            return doc_sach(sach_da_muon)
+              .then(function(){
+                return tra_sach();
+              })
+          })
+      })
+  ```
+
+Viết lại thành Cleancode
+
+```sh
+muon_sach_thu_vien()
+    .then(muon_sach)
+    .then(doc_sach)
+    .catch(console.error.bind(console));
+```
+
+<h1>5. Phân biệt let vs const? Trường hợp object thì như thế nào?</h1>
+ 
+ Trong JavaScript có 2 loại scope: function-scope và block-scope.
+ 
+ Function-scope
+ 
+  ```sh
+   function myFn() {
+    var foo = 'peekaboo!';
+
+    console.log(foo); // 'peekaboo!'
+  }
+
+  console.log(foo); // ReferenceError: foo is not defined
+  ```
+  
+  Nếu sử dụng var thì phạm vi trong các biến sẽ có bị giới hạn trong function. Khi bạn gọi các biến này ở ngoài function sẽ nhận được thông báo lỗi như trên
+  
+  Block-scope
+  
+  ```sh
+    if (true) {
+    var foo = 'peekaboo!';
+    let bar = 'i see u';
+    const baz = 'baby blue!';
+
+    console.log(foo); // 'peekaboo!';
+    console.log(bar); // 'i see u';
+    console.log(baz); // 'baby blue!';
+  }
+
+  console.log(foo); // 'peekaboo!';
+  console.log(bar); // ReferenceError: bar is not defined
+  console.log(baz); // ReferenceError: baz is not defined
+  ```
+  
+  foo không bị giới hạn bởi if-statement block. Tuy nhiên bar và baz thì bị giới hạn bởi block
+
+Đó chính là sự khác biệt giữa let, const và var
+
+Một block là đoạn code nằm trong dấu {} trong JavaScript.
+
+- let cũng có thể thay đổi giá trị của biến nhưng cú pháp nó nghiêm ngặt hơn 
+
+- Từ khóa const là viết tắt của từ constant. Nó cũng giống như let, nhưng tuy nhiên là const không thể reasign giá trị
+
+Nói chung, nếu bạn cần tạo một biến, sử dụng const. Tuy nhiên, nếu bạn biết hoặc nghĩ rằng bạn sẽ cần gán lại nó (vòng lặp for, câu lệnh chuyển đổi, hoán đổi thuật toán) hãy sử dụng let.
+  
