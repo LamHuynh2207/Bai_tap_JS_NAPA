@@ -315,3 +315,38 @@ Cách 3: Sử dụng từ khóa {} và thêm phương thức sau đó
   ```
   
 Mình thì hay dùng cách thứ 2 vì thấy cách này viết rất rõ ràng, mạch lạc.
+
+<h1>6. Sự khác nhau giữa forEach, filter, map, every, some, reduce, for</h6>
+
+<h2>forEach</h2>
+
++ Phương thức forEach() gọi một hàm cho mỗi phần tử trong một mảng.
++ Phương thức forEach() không được thực thi cho các phần tử trống.
+
+Ví dụ:
+
+Gọi một hàm cho mỗi phần tử trong trái cây:
+
+```sh
+const fruits = ["apple", "orange", "cherry"];
+fruits.forEach(myFunction);
+```
+
+<h2>filter</h2>
+
++ Phương thức filter() tạo một mảng mới chứa đầy các phần tử vượt qua bài kiểm tra do một hàm cung cấp.
++ Phương thức filter() không thực thi chức năng cho các phần tử trống.
++ Phương thức filter() không thay đổi mảng ban đầu.
+
+Ví dụ:
+
+Trả về một mảng tất cả các giá trị trong độ tuổi [] từ 18 trở lên:
+
+```sh
+const ages = [32, 33, 16, 40];
+const result = ages.filter(checkAdult);
+
+function checkAdult(age) {
+  return age >= 18;
+}
+```
