@@ -197,3 +197,121 @@ Một block là đoạn code nằm trong dấu {} trong JavaScript.
 
 Nói chung, nếu bạn cần tạo một biến, sử dụng const. Tuy nhiên, nếu bạn biết hoặc nghĩ rằng bạn sẽ cần gán lại nó (vòng lặp for, câu lệnh chuyển đổi, hoán đổi thuật toán) hãy sử dụng let.
   
+<h2>Object</h2>
+
+Object trong JavaScript là một khái niệm trừu tượng dùng để biểu diễn một vật thể (cụ thể). Trong đó, các thuộc tính dùng để miêu tả đặc điểm, tính chất của đối tượng. Ví dụ mình cần tạo ra một đối tượng Car. Cách 1: Sử dụng từ khóa new Object() <code>var Car = new Object();</code> Cách 2: Sử dụng từ khóa {} <code>var Car = {};</code>
+
+Mỗi đối tượng sẽ có các thuộc tính và phương thức.
+
+<h3>Thuộc tính</h3>
+
+Thuộc tính là những đặc điểm (có thể hiểu là biến) cần lưu trữ trong một đối tượng. Ví dụ với đối tượng Car thì có một số thuộc tính sau:
+
++ Type
++ Model
++ Color
+
+Lúc này ta có thể khai báo bằng ba cách.
+
+Cách 1: Sử dụng từ khóa new Object()
+
+  ```sh
+  // Khởi tạo
+  var Car = new Object();
+  ```
+  
+  ```sh
+  // Thêm thuộc tính
+  Car.type = '';
+  Car.model = '';
+  Car.color = '';
+  ```
+
+Cách 2: Sử dụng từ khóa {} và thêm thuộc tính ngay lúc khai báo
+
+  ```sh
+  // Khởi tạo
+  var Car = {
+      type : "",
+      model : "",
+      color : ""
+  };
+  ```
+
+Cách 3: Sử dụng từ khóa {} và thêm thuộc tính sau đó
+
+  ```sh
+  // Khởi tạo
+  var Car = {};
+  ```
+  
+  ```sh
+  // Thêm thuộc tính
+  Car.type = '';
+  Car.model = '';
+  Car.color = '';
+  ```
+  
+Trong ba cách trên thì mình khuyến khích các bạn nên sử dụng cách thứ hai bởi vì nó mạch lạc và dễ quản lý code hơn.
+
+<h3>Phương thức</h3>
+
+Phương thức là những hành động (có thể hiểu là hàm) của đối tượng. Ví dụ trong đối tượng Car thì mình cần hai phương thức là:
+
+addCar() deleteCar() Lúc này ta sẽ có ba cách khai báo tương tự như cách khai báo thuộc tính.
+
+Cách 1: Sử dụng từ khóa new Object()
+
+  ```sh
+  // Khởi tạo
+  var Car = new Object();
+  ```
+  
+  ```sh
+  // Thêm phương thức
+  Car.addCar = function(){
+    console.log("This function add car");
+  };
+  ```
+  
+  ```sh
+  Car.deleteCar = function(){
+      console.log("This function delete car");
+  };
+  ```
+  
+Cách 2: Sử dụng từ khóa {} và thêm phương thức ngay lúc khai báo
+
+  ```sh
+  // Khởi tạo
+  var Car = {
+      addCar : function(){
+          console.log("This function add car");
+      },
+      deleteCar : function(){
+          console.log("This function delete car");
+      }
+  };
+  ```
+  
+Cách 3: Sử dụng từ khóa {} và thêm phương thức sau đó
+
+  ```sh
+  // Khởi tạo
+  var Car = {};
+  ```
+  
+  ```sh
+  // Thêm phương thức
+  Car.addCar = function(){
+     console.log("This function add car");
+  };
+  ```
+  
+  ```sh
+  Car.deleteCar = function(){
+      console.log("This function delete car");
+  };
+  ```
+  
+Mình thì hay dùng cách thứ 2 vì thấy cách này viết rất rõ ràng, mạch lạc.
