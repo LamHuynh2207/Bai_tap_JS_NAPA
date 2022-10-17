@@ -350,3 +350,137 @@ function checkAdult(age) {
   return age >= 18;
 }
 ```
+
+<h2>map</h2>
+
++ map() tạo một mảng mới từ việc gọi một hàm cho mọi phần tử của mảng.
++ map() gọi một hàm một lần cho mỗi phần tử trong một mảng.
++ map() không thực thi chức năng cho các phần tử trống.
++ map() không thay đổi mảng ban đầu.
+
+Các ví dụ: 
+
+Trả về một mảng mới với căn bậc hai của tất cả các giá trị phần tử:
+
+```sh
+const numbers = [4, 9, 16, 25];
+const newArr = numbers.map(Math.sqrt)
+```
+
+Nhân tất cả các giá trị trong một mảng với 10:
+
+```
+const numbers = [65, 44, 12, 4];
+const newArr = numbers.map(myFunction)
+
+function myFunction(num) {
+  return num * 10;
+}
+```
+
+<h2>every</h2>
+
++ Phương thức every() thực thi một hàm cho mỗi phần tử mảng.
++ Phương thức every() trả về true nếu hàm trả về true cho tất cả các phần tử.
++ Phương thức every() trả về false nếu hàm trả về false cho một phần tử.
++ Phương thức every() không thực thi chức năng cho các phần tử trống.
++ Phương thức every() không thay đổi mảng ban đầu.
+
+Ví dụ:
+
+Kiểm tra xem tất cả các giá trị trong độ tuổi [] trên 18 tuổi chưa:
+
+```sh
+const ages = [32, 33, 16, 40];
+
+ages.every(checkAge)
+
+function checkAge(age) {
+  return age > 18;
+}
+```
+
+<h2>some</h2>
+
++ Phương thức some() kiểm tra xem có bất kỳ phần tử mảng nào vượt qua kiểm tra hay không (được cung cấp dưới dạng một hàm gọi lại).
++ Phương thức some() thực thi hàm gọi lại một lần cho mỗi phần tử mảng.
++ Phương thức some() trả về true (và dừng) nếu hàm trả về truecho một trong các phần tử của mảng.
++ Phương thức some() trả về false nếu hàm trả về false cho tất cả các phần tử của mảng.
++ Phương thức some() không thực thi hàm cho các phần tử mảng trống.
++ Phương thức some() không thay đổi mảng ban đầu.
+
+Ví dụ:
+
+Kiểm tra xem có giá trị nào trên 18 không:
+
+```sh
+const ages = [3, 10, 18, 20];
+
+ages.some(checkAdult);
+function checkAdult(age) {
+  return age > 18;
+}
+```
+
+<h2>reduce</h2>
+
++ Phương thức reduce() này thực thi một hàm rút gọn cho phần tử mảng.
++ Phương thức reduce() trả về một giá trị duy nhất: kết quả tích lũy của hàm.
++ Phương thức reduce() không thực thi hàm cho các phần tử mảng trống.
++ Phương thức reduce() không thay đổi mảng ban đầu.
+
+Các ví dụ:
+
+Trừ tất cả các số trong một mảng:
+
+```sh
+const numbers = [175, 50, 25];
+
+document.getElementById("demo").innerHTML = numbers.reduce(myFunc);
+
+function myFunc(total, num) {
+  return total - num;
+}
+```
+
+Làm tròn tất cả các số và hiển thị tổng:
+
+```sh
+const numbers = [15.5, 2.3, 1.1, 4.7];
+document.getElementById("demo").innerHTML = numbers.reduce(getSum, 0);
+
+function getSum(total, num) {
+  return total + Math.round(num);
+}
+```
+
+<h2>for</h2>
+
+Câu lệnh for tạo một vòng lặp với 3 biểu thức tùy chọn:
+
+```sh
+for (expression 1; expression 2; expression 3) {
+  // code block to be executed
+}
+```
+
+Biểu thức 1 được thực hiện (một lần) trước khi khối mã thực thi.
+
+Biểu thức 2 xác định điều kiện để thực thi khối mã.
+
+Biểu thức 3 được thực hiện (mọi lúc) sau khi khối mã đã được thực thi.
+
+Ví dụ:
+
+```sh
+for (let i = 0; i < 5; i++) {
+  text += "The number is " + i + "<br>";
+}
+```
+Từ ví dụ trên, có thể thấy:
+
+Biểu thức 1 đặt một biến trước khi vòng lặp bắt đầu (cho i = 0).
+
+Biểu thức 2 xác định điều kiện để chạy vòng lặp (i phải nhỏ hơn 5).
+
+Biểu thức 3 tăng một giá trị (i++) mỗi khi khối mã trong vòng lặp được thực thi.
