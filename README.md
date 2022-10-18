@@ -537,7 +537,7 @@ Trong JavaScript có hai kiểu khai báo biến là let và var.
 + Đối với kiểu dữ liệu nguyên thủy, khi ta chỉnh sửa thông tin ở biến đó ta sẽ truy cập tới địa chỉ là số thông tin ban đầu và cập nhật lại giá trị mới.
 + Đối với kiểu dữ liệu tham chiếu, khi tạo biến, địa chỉ của biến đó chỉ sẽ có giá trị là undefined, khi biến được gán giá trị, giá trị đó sẽ được lưu ở một địa chỉ khác và biến sẽ lưu lại địa chỉ của giá trị.
 
-<h1>8. Javascript có bao nhiêu kiểu dữ liệu?</h1>
+<h1>9. Javascript có bao nhiêu kiểu dữ liệu?</h1>
 
 JavaScript có 8 kiểu dữ liệu cơ bản, trong đó, có 7 kiểu dữ liệu nguyên thủy (boolean, null, undefined, number, BigInt, string, symbol) và 1 kiểu dữ liệu dạng tham chiếu (object).
 
@@ -640,10 +640,51 @@ Object là kiểu dữ liệu tham chiếu. Có thể hiểu object là một t�
 
 Trong đó, kiểu dữ liệu của key có thể là string hoặc symbol. Và value ứng với key có thể là bất kỳ kiểu dữ liệu nào.
 
+<h1>10. Làm thế thế nào để kiểm tra Object có empty hay không?</h1>
 
+Để kiểm tra object là empty trong ES6, mình sử dụng phương thức Object.keys(). Phương thức này trả về một mảng chứa tất cả các thuộc tính enumerable của object.
 
+Nếu kết quả trả về là mảng rỗng thì suy ra object đó không chứa thuộc tính enumerable nào.
 
+Ví dụ sử dụng Object.keys():
 
+```sh
+const a = {},
+  b = { x: 1 },
+  c = { m: "a", n: "b" };
 
+console.log(Object.keys(a)); // []
+console.log(Object.keys(b)); // ["x"]
+console.log(Object.keys(c)); // ["m", "n"]
+```
 
+Bây giờ, mình sẽ viết hàm kiểm tra object có empty hay không như sau:
 
+```sh
+const isEmpty = (v) => {
+  return Object.keys(v).length === 0;
+};
+```
+
+Kiểm tra lại hàm isEmpty():
+
+```sh
+const a = {},
+  b = { x: 1 },
+  c = { m: "a", n: "b" };
+
+console.log(isEmpty(a)); // true
+console.log(isEmpty(b)); // false
+console.log(isEmpty(c)); // false
+```
+
+Kết quả lần này lại đúng như mong đợi.
+
+<h1>11. Các phương thức để nối 2 mảng?</h1>
+
++ Phương pháp 1: Nối các phần tử vào một mảng hiện có bằng Array.prototype.push()
++ Phương pháp 2: Nối các phần tử vào một mảng mới bằng Array.prototype.push()
++ Phương pháp 3: Sử dụng prototype concat()
++ Phương pháp 4: Sử dụng toán tử spread (…)
+
+<h1>12. Arrow function là gì? So sánh arrow func vs express func</h1>
