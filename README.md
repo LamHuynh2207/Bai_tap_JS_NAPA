@@ -536,3 +536,114 @@ Trong JavaScript có hai kiểu khai báo biến là let và var.
 + Khi ta khai báo biến, biến sẽ được lưu trong ram, nơi lưu trữ đó có địa chỉ của biến đó, và địa chỉ của biến sẽ lưu thông tin của biến.
 + Đối với kiểu dữ liệu nguyên thủy, khi ta chỉnh sửa thông tin ở biến đó ta sẽ truy cập tới địa chỉ là số thông tin ban đầu và cập nhật lại giá trị mới.
 + Đối với kiểu dữ liệu tham chiếu, khi tạo biến, địa chỉ của biến đó chỉ sẽ có giá trị là undefined, khi biến được gán giá trị, giá trị đó sẽ được lưu ở một địa chỉ khác và biến sẽ lưu lại địa chỉ của giá trị.
+
+<h1>8. Javascript có bao nhiêu kiểu dữ liệu?</h1>
+
+JavaScript có 8 kiểu dữ liệu cơ bản, trong đó, có 7 kiểu dữ liệu nguyên thủy (boolean, null, undefined, number, BigInt, string, symbol) và 1 kiểu dữ liệu dạng tham chiếu (object).
+
++ Kiểu dữ liệu nguyên thủy: là kiểu dữ liệu mà giá trị không thể thay đổi được. Đây là kiểu dữ liệu ứng với "level thấp nhất" của ngôn ngữ lập trình.
+
++ Kiểu dữ liệu tham chiếu (object): là tập hợp của các thuộc tính (key) và giá trị (value). Mà số lượng các key có thể thay đổi, giá trị ứng với key cũng có thể thay đổi. Do đó, giá trị của kiểu dữ liệu tham chiếu có thể thay đổi được.
+
+<h2>Kiểu dữ liệu boolean (kiểu logic)</h2>
+
+Boolean là kiểu dữ liệu logic chỉ bao gồm hai giá trị là true (đúng, chính xác) và false (sai, không chính xác), ví dụ:
+
+```sh
+let isWebLoaded = true; // => Trang web đã được tải xong
+console.log(isWebLoaded); // true
+
+let isProgramRunning = false; // Chương trình đang không chạy
+console.log(isProgramRunning); // false
+```
+
+<h2>Kiểu dữ liệu null</h2>
+
+Kiểu dữ liệu null là một kiểu dữ liệu đặc biệt, chỉ bao gồm một giá trị là null, ví dụ:
+
+```sh
+let language = null;
+console.log(language); // null
+```
+
+Trong ví dụ trên, biến language được hiểu là không biết giá trị hoặc không có giá trị.
+
+<h2>Kiểu dữ liệu undefined</h2>
+
+Cũng tương tự như null, undefined là một kiểu dữ liệu đặc biệt trong JavaScript, chỉ bao gồm một giá trị undefined, ví dụ:
+
+```sh
+let language = undefined;
+console.log(language); // undefined
+```
+
+Kiểu dữ liệu undefined có nghĩa là giá trị chưa được gán.
+
+<h2>Kiểu dữ liệu number</h2>
+
+Kiểu dữ liệu number là kiểu dữ liệu dạng số (tương tự trong toán học). Number trong JavaScript không có cú pháp gì đặc biệt. Bạn chỉ cần viết số ra.
+
+JavaScript có hai loại số là: số nguyên và số thực.
+
+```sh
+let n1 = 66; // số nguyên dương
+let n2 = -66; // số nguyên âm
+let n3 = 3.14; // số thực dương
+let n4 = -3.14; // số thực âm
+let n5 = 2e3; // => 2*10^3 = 2000
+let n6 = 2e-3; // => 2*10^(-3) = 0.002
+let n7 = 0xff; // số dạng hexa (hệ cơ số 16): 15*16 + 15 = 255
+let n8 = 067; // số dạng octa (hệ cơ số 8): 6*8 + 7 = 55
+let n9 = 0b11; // số dạng nhị phân (hệ cơ số 2): 1*2 + 1 = 3
+```
+
+<h2>Kiểu dữ liệu BigInt</h2>
+
+Trong JavaScript, kiểu dữ liệu number không thể biểu diễn một số nguyên lớn hơn (253-1) (bằng 9007199254740991) và nhỏ hơn -(253-1).
+
+Với hầu hết các trường hợp, việc sử dụng kiểu dữ liệu number là quá đủ. Nhưng đôi khi, bạn vẫn cần biểu diễn và tính toán với những số nguyên cực kỳ lớn. Do đó, kiểu dữ liệu BigInt ra đời nhằm giải quyết vấn đề này.
+
+Để biểu diễn số nguyên với kiểu BigInt, bạn chỉ cần thêm chữ cái n ở phía sau, ví dụ:
+
+```sh
+const reallyBigNumber = 12345678987654321012345678987654321n;
+console.log(reallyBigNumber); // 12345678987654321012345678987654321n
+```
+
+<h2>Kiểu dữ liệu string</h2>
+
+String là kiểu dữ liệu dùng để biểu diễn chữ, văn bản, đoạn văn bản,...
+
+Có ba cách để biểu diễn string trong JavaScript:
+
+Dùng dấu nháy đơn (')
+Dùng dấu nháy kép (")
+Dùng dấu "backtick" (`)
+
+Ví dụ:
+
+```sh
+const msg1 = 'Đây là string dùng dấu nháy đơn';
+const msg2 = "Đây là string dùng dấu nháy kép";
+const msg3 = `Đây là string dùng dấu backtick`;
+```
+
+Dấu nháy đơn và dấu nháy kép là hoàn toàn giống nhau.
+
+<h2>Kiểu dữ liệu symbol</h2>
+
+Symbol là một kiểu dữ liệu nguyên thủy dùng để tạo ra các giá trị duy nhất (unique value) và bất biến (immutable). Symbol thường được dùng làm key cho kiểu dữ liệu object sau đây.
+
+<h2>Kiểu dữ liệu object</h2>
+
+Object là kiểu dữ liệu tham chiếu. Có thể hiểu object là một tập hợp gồm các cặp key - value (khóa - giá trị).
+
+Trong đó, kiểu dữ liệu của key có thể là string hoặc symbol. Và value ứng với key có thể là bất kỳ kiểu dữ liệu nào.
+
+
+
+
+
+
+
+
