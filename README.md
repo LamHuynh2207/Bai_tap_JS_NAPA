@@ -800,7 +800,62 @@ Spread operator có rất nhiều các chức năng hữu dụng khác giúp cod
   let fruits = ['🍈', '🍉', '🍋', '🍌'];
   console.log(...fruits); //🍈 🍉 🍋 🍌
   ```
+  
+<h1>14. Con trỏ this là gì? Phân biệt call, bind, apply?</h1
+  
+Trong javascript, chúng ta dùng từ khóa this để đại diện cho một đối tượng (Object). Đối tượng đó là chủ thế của ngữ cảnh, hoặc là chủ thế của code đang được chạy.
 
+Ví dụ:
 
+```sh
+var person = {
+  firstName: 'Lam',
+  lastName: 'Huynh',
+  showName: function() {
+    console.log(this.firstName + ' ' + this.lastName);
+  }
+};
 
+//Ở đây this sẽ là object person
+person.showName(); //Lam Huynh
+```
 
++ Điều quan trọng nhất cần nhớ : This trả về object gần nhất chứa nó
++ Nếu this đứng 1 mình (tức global, không nằm trong method hay function nào) thì sẽ trả về "window obj"
++ Trong method : This trả về obj chứa method đó
++ Trong function với strict mode : This trả về "undefined"
++ Trong function không phải strict mode: This trả về "window obj"
++ Trong 1 event : This trả về element mà event đó tác động vào.
+  
+<h2>call</h2>
+
+Gọi hàm và cho phép bạn truyền vào một object và các đối số phân cách nhau bởi dấu phẩy (Comma)
+
+```sh
+function.call(thisArg, arg1, arg2, ...)
+```
+
+<h2>apply</h2>
+
+Gọi hàm và cho phép bạn truyền vào một object và các đối số thông qua mảng (Array)
+
+```sh
+fun.apply(thisArg, [argsArray])
+```
+
+<h2>bind</h2>
+
+Trả về một hàm số mới, cho phép bạn truyền vào một object và các đối số phân cách nhau bởi dấu phẩy.
+
+```sh
+var newFunction = fun.bind(thisArg[, arg1[, arg2[, ...]]])
+```
+
++  Nhìn chung, hàm call và apply là gần giống nhau. Chúng đều gọi hàm trực tiếp. Chỉ khác ở cách truyền tham số vào (với call thì đối số phân cách bởi dấu phẩy comma và với apply thì đối số cho bởi mảng array)
++  Hàm bind thì hơi khác hơn một chút. Hàm này không gọi hàm trực tiếp mà nó sẽ trả về một hàm mới. Và bạn có thể sử dụng hàm số mới này sau. Về cách truyền tham số vào thì nó giống với hàm call.
+
+<h1>15. Nodejs là single thread hay multiple thread?</h1>
+
+Nodejs vừa là single thread và multiple thread.
+
+Nodejs chạy mã JavaScript trong một luồng duy nhất, có nghĩa là mã của bạn chỉ có thể thực hiện một tác vụ tại một thời điểm. Tuy nhiên, bản thân Nodejs là đa luồng và cung cấp các luồng ẩn thông qua thư viện libuv, nơi xử lý các hoạt động I / O như đọc tệp từ đĩa hoặc các yêu cầu mạng.
