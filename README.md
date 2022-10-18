@@ -523,3 +523,16 @@ const cloneFood = JSON.parse(JSON.stringify(food))
 console.log(cloneFood); 
 // { corn: '🌽', bacon: '🥓' }
 ```
+
+<h1>8. Phân biệt giá trị và địa chỉ của biến?</h1>
+
+Biến dùng để lưu trữ giá trị các dữ liệu, hay các đối tượng. Giá trị của biến tùy bạn thay đổi trong quá trình chương trình làm việc để đáp ứng yêu cầu riêng của bạn.
+
+Trong JavaScript có hai kiểu khai báo biến là let và var.
+
++ Biến cục bộ (local variable): Biến này chỉ có hiệu lực trong hàm (khối lệnh) nó khai báo (sang bài hàm mình sẽ nói rõ hơn), khi ra khỏi hàm nó sẽ hết hiệu lực.
++ Biến toàn cục (global variable): Biến có hiệu lực toàn bộ code, có thể truy cập ở bất kỳ đâu. Biến này không khai báo trong hàm mà khai báo bên ngoài.
+
++ Khi ta khai báo biến, biến sẽ được lưu trong ram, nơi lưu trữ đó có địa chỉ của biến đó, và địa chỉ của biến sẽ lưu thông tin của biến.
++ Đối với kiểu dữ liệu nguyên thủy, khi ta chỉnh sửa thông tin ở biến đó ta sẽ truy cập tới địa chỉ là số thông tin ban đầu và cập nhật lại giá trị mới.
++ Đối với kiểu dữ liệu tham chiếu, khi tạo biến, địa chỉ của biến đó chỉ sẽ có giá trị là undefined, khi biến được gán giá trị, giá trị đó sẽ được lưu ở một địa chỉ khác và biến sẽ lưu lại địa chỉ của giá trị.
