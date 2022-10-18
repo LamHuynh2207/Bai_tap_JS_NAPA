@@ -688,3 +688,119 @@ Kết quả lần này lại đúng như mong đợi.
 + Phương pháp 4: Sử dụng toán tử spread (…)
 
 <h1>12. Arrow function là gì? So sánh arrow func vs express func</h1>
+
+Arrow function - còn được gọi là "fat arrow", là cú pháp được mượn từ CoffeeScript (một ngôn ngữ chuyển tiếp), cú pháp này là cách ngắn gọn hơn dùng để viết function. Ở đây sử dụng kí tự =>, trông giống như một mũi tên "béo". Arrow function là một hàm vô danh và nó thay đổi cách this bind đến function. Arrow function làm code của ta trông ngắn gọn hơn, giúp đơn giản hóa function scoping cũng như từ khóa this. Arrow function hoạt động tương tự như Lambdas trong các ngôn ngữ khác như C # hay Python. Bằng cách sử dụng arrow function, chúng ta tránh được việc phải gõ từ khoá function, return và dấu ngoặc nhọn.
+
+Ví dụ:
+
+```sh
+let myFunction = (a, b) => a * b;
+```
+
+<h2>So sánh arrow func vs express func</h2>
+
+<h3>Giống nhau</h3>
+
+Arrow function và function đều là function.
+
+<h3>Khác nhau cơ bản</h3>
+
++ Cú pháp
+
+  Arrow function sử dụng kí tự =>:
+
+  ```sh
+  let sayHi = () => {
+    console.log("Hi");
+  }
+  sayHi();
+  // => Hi
+  ```
+  
+  Function sử dụng từ khoá function:
+  
+  ```sh
+  let sayHi = function() {
+    console.log("Hi");
+  }
+  sayHi();
+  // => Hi
+  ```
+  
++ Arrow function thường ngắn gọn hơn function
++ Arrow function không bind this
++ Arrow function không bind arguments
++ Arrow function không phù hợp làm method cho object
++ Arrow function không thể sử dụng làm hàm constructor
++ Arrow function không có thuộc tính prototype
++ Arrow function không được hoisted
+
+<h1>13. Spread operator dùng để làm gì?</h1>
+
+ES6 cung cấp một toán tử mới gọi là spread operator bao gồm ba dấu chấm (...). Spread operator cho phép bạn trải ra các phần tử của một đối tượng có thể lặp lại, chẳng hạn như một array, map hoặc set.
+
+Spread operator có rất nhiều các chức năng hữu dụng khác giúp code của chúng ta ngắn gọn và dễ nhìn hơn rất nhiều, có thể kể đến như:
+
++ Copying an array
+
+  Có lẽ đây là một trong những cách sử dụng phổ biến nhất của Spread Operator javascript.
+
+  ```sh
+  let arr = [1,2,3,4]
+  let copy = [...arr]
+  // copy is [ 1, 2, 3, 4 ]
+  ```
+  
++ Concatenate arrays
+
+  Dựa trên ví dụ trước, bạn có thể tạo ra một new array thông qua nhiều array cho trước.
+
+  ```sh
+  let arr1 = [1,2,3,4]
+  let arr2 = [5,6,7,8]
+  let concat = [...arr1, ...arr2]
+  // concat is [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+  ```
+
++ Copy an object
+
+  Cũng giống như ví dụ về array ở phần 1 thì object cũng tương tự
+
+  ```sh
+  let obj = {a: 1, b: 2, c: 3}
+  let copy = {...obj}
+  // copy is {a: 1, b: 2, c: 3}
+  ```
+
++ Merge object
+
+  Giờ đây khi Merge object chúng ta sẽ không cần đến sử dụng cách cũ concat(). Mà bạn có thể thực hiện nhanh chóng hơn với spread trong javascript.
+
+  ```sh
+  let obj1 = {a: 1, b: 2, c: 3}
+  let obj2 = {d: 4, e: 5, f: 6}
+
+  let merge = {...obj1, ...obj2}
+  // merge is {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}
+  ```
+  
++ Bonus - An Error!
+
+  Mặc dù thực tế rằng spread operator trải đều hoạt động trên cả array và object, bạn không thể trộn và khớp các loại dữ liệu này với nhau. Như ví dụ dưới đây.
+  
+  ```sh
+  let obj = {a:1, b:2, c:3}
+  let copy = [...obj] // this won't work!
+  Using Spread Operator in logging
+  ```
+  
++ Ngoài ra chúng ta có thể sử dụng spread opertor dể loop trong logging.
+
+  ```sh
+  let fruits = ['🍈', '🍉', '🍋', '🍌'];
+  console.log(...fruits); //🍈 🍉 🍋 🍌
+  ```
+
+
+
+
