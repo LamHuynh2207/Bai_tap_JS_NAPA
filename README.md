@@ -484,3 +484,42 @@ Biểu thức 1 đặt một biến trước khi vòng lặp bắt đầu (cho i
 Biểu thức 2 xác định điều kiện để chạy vòng lặp (i phải nhỏ hơn 5).
 
 Biểu thức 3 tăng một giá trị (i++) mỗi khi khối mã trong vòng lặp được thực thi.
+
+<h1>7. Các phương pháp clone object?</h1>
+
+<h2>1. Sử dụng Spread</h2>
+
+```sh
+const food = { corn: '🌽', bacon: '🥓' };
+
+const cloneFood = { ...food };
+
+console.log(cloneFood); 
+// { corn: '🌽', bacon: '🥓' }
+```
+
+Sử dụng Spread sẽ giúp ta clone Obj. Lưu ý khi sử dụng nó bạn có thể cần phải compile cùng với Babel
+
+<h2>2. Sử dụng Object.assign</h2>
+
+```sh
+const food = { corn: '🌽', bacon: '🥓' };
+
+const cloneFood = Object.assign({}, food);
+
+console.log(cloneFood);
+// { corn: '🌽', bacon: '🥓' }
+```
+
+Ngoài IE huyền thoại thì Object.assign support hầu như đầy đủ, Object.assign nằm trong bản phát hành chính thức và ta có thể dùng nó để clone 1 Obj nhanh chóng.
+
+<h2>3. Sử dụng JSON</h2>
+
+```sh
+const food = { corn: '🌽', bacon: '🥓' };
+
+const cloneFood = JSON.parse(JSON.stringify(food))
+
+console.log(cloneFood); 
+// { corn: '🌽', bacon: '🥓' }
+```
